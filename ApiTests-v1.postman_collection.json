@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "6da8bb60-b59d-4045-b4ec-e52611f1ed3e",
+		"name": "ApiTests-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5363764"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    pm.test(\"Retorno OK\", function() {\r",
+							"        pm.response.to.be.error;\r",
+							"\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Jane\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-concise-display-351000.cloudfunctions.net/serverless-dev-recebeAtividade",
+					"protocol": "https",
+					"host": [
+						"us-central1-concise-display-351000",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"serverless-dev-recebeAtividade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (responseCode.code != 200){\r",
+							"      tests[\"ResponseBody=\"+responseBody] = 0;\r",
+							"      tests[\"request is \"+JSON.stringify(request)]=jsonData.result===1;\r",
+							"}\r",
+							"\r",
+							"    pm.test(\"Retorno OK\", function() {\r",
+							"        pm.response.to.be.ok;\r",
+							"        pm.response.to.json;\r",
+							"        pm.response.to.be.withBody;\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-concise-display-351000.cloudfunctions.net/talk-1",
+					"protocol": "https",
+					"host": [
+						"us-central1-concise-display-351000",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"talk-1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
